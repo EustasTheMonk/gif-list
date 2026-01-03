@@ -1,0 +1,36 @@
+.masonry {
+  margin-top: 100px;
+  width: 100%;
+  margin-inline: auto;
+
+  column-count: 1;
+  column-gap: 0.25rem;
+  padding-inline: 12px;
+}
+
+@media (min-width: 480px) {
+  .masonry {
+    column-count: 2;
+  }
+}
+
+@media (min-width: 768px) {
+  .masonry {
+    column-count: 3;
+    padding-inline: 0;
+  }
+}
+
+@media (min-width: 1024px) {
+  .masonry {
+    column-count: 4;
+    max-width: 1000px;
+  }
+}
+
+.masonry_item {
+  display: inline-block;
+  break-inside: avoid;
+  margin-bottom: 0.25rem;
+  width: 100%;
+}
