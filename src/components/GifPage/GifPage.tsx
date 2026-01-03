@@ -81,13 +81,15 @@ export const GifPage = () => {
           </Text>
         )}
       </Center>
-      <Center alignItems="flex-start">
+      <Center display="flex" flexDirection={{ base: "column", md: "row" }} alignItems={{ base: "stretch", md: "flex-start" }}>
         <Box>
           <img src={gifInfo?.images.original?.webp} alt="" />
         </Box>
         <Box marginLeft={15}>
           <Box>
             <Button
+              colorScheme="teal"
+              variant="ghost"
               title="Copy gif url"
               disabled={!gifInfo?.images.original?.url}
               onClick={async () => {
@@ -105,6 +107,8 @@ export const GifPage = () => {
             </Button>
 
             <IconButton
+              colorScheme="teal"
+              variant="ghost"
               title="Download gif"
               marginLeft={15}
               onClick={() => {

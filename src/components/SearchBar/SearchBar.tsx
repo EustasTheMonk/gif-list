@@ -28,14 +28,16 @@ export const SearchBar: React.FC = () => {
           onKeyPress={(e) => e.key === 'Enter' && navigateToSearch()}
         />
 
-      </InputGroup>
-      <IconButton
-        px={5}
-        title="Search"
-        marginLeft={15}
-        aria-label="Download gif"
-        onClick={() => navigateToSearch()}
-      >
+        </InputGroup>
+        <IconButton
+          colorScheme="teal"
+          variant="ghost"
+          px={5}
+          title="Search"
+          marginLeft={15}
+          aria-label="Download gif"
+          onClick={() => navigateToSearch()}
+        >
         Search <BsSearch color="white" />
       </IconButton>
     </Box>
