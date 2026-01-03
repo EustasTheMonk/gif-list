@@ -7,6 +7,7 @@ import {Link, useParams} from "react-router";
 import {Box, Button, Center, Spinner} from "@chakra-ui/react";
 import {routesParams} from "@/Enums/routesParams.ts";
 import axios from "axios";
+import {Masonry} from "masonic";
 
 export const GifsGrid = () => {
   const [gifs, setGifs] = useState<GiphyGif[]>([]);
@@ -88,22 +89,22 @@ export const GifsGrid = () => {
     return () => {
       observer.disconnect();
     };
-  }, [offset, hasMore, isLoading, isMoreLoading]);
+  }, [offset, hasMore, isMoreLoading]);
 
   return (
     <>
-      <div className={styles.masonry}>
-        {gifs.map((gif) => (
-          <Link key={gif.id} to={`/${gif.id}`}>
+      <Center width={{ lg: 900 }} mx={"auto"} px={10}>
+        <Masonry columnGutter={5} rowGutter={5} items={gifs} render={(gif) => (
+          <Link key={gif.data.id} to={`/${gif.data.id}`}>
             <img
               className={styles.masonry_item}
-              src={gif.images?.fixed_width_downsampled?.mp4 || gif.images?.fixed_width?.url}
-              alt={gif.title ?? "gif"}
+              src={gif.data.images?.fixed_width_downsampled?.mp4 || gif.data.images?.fixed_width?.url}
+              alt={gif.data.title ?? "gif"}
               loading="lazy"
             />
           </Link>
-        ))}
-      </div>
+        )} />
+      </Center>
 
       {isLoading && (
         <Center minH="200px">
